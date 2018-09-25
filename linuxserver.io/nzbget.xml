@@ -1,11 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <Container version="2">
   <Name>NZBGet</Name>
-  <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/nzbget.xml</TemplateURL>
-  <Beta>False</Beta>
-  <Category>Downloaders:</Category>
-  <Date>2018-09-24</Date>
-  <Support>https://forums.unraid.net/topic/41906-support-linuxserverio-nzbget/</Support>
   <Changes> [center][img width='300px' src='https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
 
   [center][font size=4]NZBGet Change Log[/font][/center]
@@ -15,35 +10,26 @@
     - Added CPU pinning
     - Removed port mapping config in lieu of extra-param port definition (config port mapping using legacy docker networking)
     - Switched to br0 networking with static IP
-  </Changes>
-  <Description>NZBGet is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources. It supports all platforms including Windows, Mac, Linux and works on all devices including PC, NAS, WLAN routers and media players.
-  [br][br][b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
-  [b]/config[/b] : Storing all NZBGet config files [br]
-  [b]/downloads[/b] : Point to Downloads location[br]
-  [b]6789[/b] : The web-interface. [br]
-  [br] The default credentials to login are:[br]
-  [b]username:[/b] nzbget[br]
-  [b]password:[/b] tegbzn6789
-  </Description>
+  </Changes>   
+  <Repository>linuxserver/nzbget</Repository>
+  <Registry>https://hub.docker.com/r/linuxserver/nzbget/</Registry>
+  <Network>br0</Network>
+  <MyIP>10.0.0.76</MyIP>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/41906-support-linuxserverio-nzbget/</Support>
   <Project>http://nzbget.net/</Project>
   <Overview>NZBGet is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources. It supports all platforms including Windows, Mac, Linux and works on all devices including PC, NAS, WLAN routers and media players</Overview>
-  <Registry>https://hub.docker.com/r/linuxserver/nzbget/</Registry>
-  <Repository>linuxserver/nzbget</Repository>
-  <BindTime>true</BindTime>
-  <Privileged>false</Privileged>
+  <Category>Downloaders:</Category>
+  <WebUI>http://[IP]:6788</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/nzbget.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/nzbget-icon.png</Icon>
   <ExtraParams>-p 6788:6789</ExtraParams>
   <PostArgs/>
   <CPUset>0,1</CPUset>
-  <Environment>
-    <Variable>
-      <Name>PUID</Name>
-      <Value>0</Value>
-    </Variable>
-    <Variable>
-      <Name>PGID</Name>
-      <Value>0</Value>
-    </Variable>
-  </Environment>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Description>NZBGet is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources. It supports all platforms including Windows, Mac, Linux and works on all devices including PC, NAS, WLAN routers and media players</Description>
   <Networking>
     <Mode>br0</Mode>
     <Publish>
@@ -86,12 +72,25 @@
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <Version>1.0</Version>
-  <WebUI>http://[IP]:[PORT:6788]/</WebUI>
-  <Icon>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/nzbget-icon.png</Icon>
-  <ExtraParams></ExtraParams>
-  <DonateText>Donations</DonateText>
-  <DonateLink>https://www.linuxserver.io/donate</DonateLink>
-  <DonateImg>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
-  <BaseImage>lsiobase/alpine:3.6</BaseImage>
+  <Environment>
+    <Variable>
+      <Value>0</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>0</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Software" Target="/software" Default="" Mode="rw" Description="Container Path: /software" Type="Path" Display="always" Required="false" Mask="false">/mnt/torrents/software</Config>
+  <Config Name="Movies" Target="/movies" Default="" Mode="rw" Description="Container Path: /movies" Type="Path" Display="always" Required="false" Mask="false">/mnt/movies</Config>
+  <Config Name="TV" Target="/tv" Default="" Mode="rw" Description="Container Path: /tv" Type="Path" Display="always" Required="false" Mask="false">/mnt/tv</Config>
+  <Config Name="Downloads" Target="/downloads" Default="" Mode="rw" Description="Container Path: /downloads" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/nzbget/downloads</Config>
+  <Config Name="PGID" Target="PGID" Default="0" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
+  <Config Name="PUID" Target="PUID" Default="0" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
+  <Config Name="Config" Target="/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/nzbget/config</Config>
+  <Config Name="App Directory" Target="/nzbget" Default="" Mode="rw" Description="Container Path: /nzbget" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/nzbget</Config>
 </Container>
