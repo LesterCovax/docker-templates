@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>Tautulli</Name>
+  <Name>tautulli</Name>
   <Changes> [center][img width='300px' src='https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
 
   [center][font size=4]Tautulli Change Log[/font][/center]
@@ -13,6 +13,10 @@
   </Changes>  
   <Repository>linuxserver/tautulli</Repository>
   <Registry>https://hub.docker.com/r/linuxserver/tautulli/</Registry>
+  <DonateText>Donations</DonateText>
+  <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+  <DonateImg>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+  <BaseImage>lsiobase/alpine.python:3.7</BaseImage>  
   <Network>br0</Network>
   <MyIP>10.0.0.80</MyIP>
   <Privileged>false</Privileged>
@@ -71,8 +75,4 @@
   <Config Name="Config" Target="/config" Default="/mnt/user/appdata/tautulli" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/tautulli</Config>  
   <Config Name="PUID" Target="PUID" Default="0" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
   <Config Name="PUID" Target="PGID" Default="0" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
-  <DonateText>Donations</DonateText>
-  <DonateLink>https://www.linuxserver.io/donate</DonateLink>
-  <DonateImg>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
-  <BaseImage>lsiobase/alpine.python:3.7</BaseImage>
 </Container>

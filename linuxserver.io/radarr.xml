@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>Radarr</Name>
+  <Name>radarr</Name>
   <Repository>linuxserver/radarr</Repository>
   <Registry>https://hub.docker.com/r/linuxserver/radarr/</Registry>
   <Network>br0</Network>

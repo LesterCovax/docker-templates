@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Container version="2">
-  <Name>Unifi</Name>
+  <Name>unifi</Name>
   <Changes> [center][img width='300px' src='https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
 
-  [center][font size=4]Tautulli Change Log[/font][/center]
+  [center][font size=4]Unifi Change Log[/font][/center]
   [b]2018.09.24:[/b]
   - Forked from github/linuxserver
   - Updated for Unraid 6.6.0
