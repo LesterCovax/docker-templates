@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Container>
-  <TemplateURL>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/unifi.xml</TemplateURL>
-  <Name>unifi</Name>
-  <Support>https://forums.unraid.net/topic/42110-support-linuxserverio-unifi/</Support>
-  <Project>https://community.ubnt.com/</Project>
-  <Description>The UniFi® Controller software is a powerful, enterprise wireless software engine ideal for high-density client deployments requiring low latency and high uptime performance.</Description>
-  <Registry>https://hub.docker.com/r/linuxserver/unifi</Registry>
-  <Repository>linuxserver/unifi</Repository>
-  <BindTime>true</BindTime>
-  <Privileged>false</Privileged>
-  <Beta>False</Beta>
-  <Category>Network:Management Tools:</Category>
-  <Date>2017-07-15</Date>
-  <Changes>[center][img width='300px' src='https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
+<Container version="2">
+  <Name>Unifi</Name>
+  <Changes> [center][img width='300px' src='https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
 
-[center][font size=4]Unifi Change Log[/font][/center]
-[b]15.07.16[/b] Update to 5.5.19, using .deb instead of repo,
-using mongod repo instead of ubuntu defaut to install mongo
-[b]20.09.16[/b] Update to 5.27
-[b]18.11.16[/b] Symlink fix when app is updated
-[b]03.11.15[/b] Initial release</Changes>
-  <Environment>
-    <Variable>
-      <Name>PUID</Name>
-      <Value>99</Value>
-    </Variable>
-    <Variable>
-      <Name>PGID</Name>
-      <Value>100</Value>
-    </Variable>
-  </Environment>
+  [center][font size=4]Tautulli Change Log[/font][/center]
+  [b]2018.09.24:[/b]
+  - Forked from github/linuxserver
+  - Updated for Unraid 6.6.0
+    - Added CPU pinning
+    - Removed port mapping config in lieu of extra-param port definition (config port mapping using legacy docker networking)
+    - Switched to br0 networking with static IP
+    - Removed privileged access
+  </Changes>  
+  <BaseImage>Debian:Stretch</BaseImage>
+  <Date>2018-09-24</Date>
+  <Repository>brettm357/unifi</Repository>
+  <Registry>https://hub.docker.com/r/brettm357/unifi</Registry>
+  <Network>br0</Network>
+  <MyIP>10.0.0.3</MyIP>  
+  <Privileged>false</Privileged>
+  <Support>https://forums.lime-technology.com/topic/56178-support-brettm357-unifi</Support>
+  <Project>https://www.ubnt.com</Project>
+  <Overview>Use the UniFi Controller software to quickly configure and administer an enterprise Wi‐Fi network. RF map and performance features, real-time status, automatic UAP device detection, and advanced security options are all seamlessly integrated.</Overview>
+  <Category>Network:Management Tools:</Category>
+  <WebUI>https://[IP]:[PORT:8443]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/unifi.xml</TemplateURL>
+  <Icon>https://dl.ubnt.com/press/Company_Logos/U_Logo/WEB/U_Logo_RGB.png</Icon>
+  <ExtraParams/>
+  <DateInstalled/>
+  <Description>UniFi Access Point Controller Software - version 5.9.26</Description>
+  <CPUset>0,1</CPUset>  
   <Networking>
-    <Mode>bridge</Mode>
+    <Mode>br0</Mode>
     <Publish>
       <Port>
         <HostPort>3478</HostPort>
@@ -39,9 +39,9 @@ using mongod repo instead of ubuntu defaut to install mongo
         <Protocol>udp</Protocol>
       </Port>
       <Port>
-        <HostPort>10001</HostPort>
-        <ContainerPort>10001</ContainerPort>
-        <Protocol>udp</Protocol>
+        <HostPort>6789</HostPort>
+        <ContainerPort>6789</ContainerPort>
+        <Protocol>tcp</Protocol>
       </Port>
       <Port>
         <HostPort>8080</HostPort>
@@ -72,17 +72,37 @@ using mongod repo instead of ubuntu defaut to install mongo
   </Networking>
   <Data>
     <Volume>
-      <HostDir></HostDir>
-      <ContainerDir>/config</ContainerDir>
+      <HostDir>/mnt/user/appdata/unifi</HostDir>
+      <ContainerDir>/usr/lib/unifi/data</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/unifi/logs</HostDir>
+      <ContainerDir>/usr/lib/unifi/logs</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <Version></Version>
-  <WebUI>https://[IP]:[PORT:8443]</WebUI>
-  <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/unifi-icon.png</Icon>
-  <ExtraParams></ExtraParams>
-<DonateText>Donations</DonateText>
-<DonateLink>https://www.linuxserver.io/donate</DonateLink>
-<DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
-<BaseImage>lsiobase/ubuntu:xenial</BaseImage>
+  <Environment>
+    <Variable>
+      <Value>0</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>0</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Config Name="Host Port 1" Target="3478" Default="3478" Mode="udp" Description="Container Port: 3478" Type="Port" Display="always" Required="true" Mask="false">3478</Config>
+  <Config Name="Host Port 2" Target="6789" Default="6789" Mode="tcp" Description="Container Port: 6789" Type="Port" Display="always" Required="true" Mask="false">6789</Config>
+  <Config Name="Host Port 3" Target="8080" Default="8080" Mode="tcp" Description="Container Port: 8080" Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+  <Config Name="Host Port 4" Target="8081" Default="8081" Mode="tcp" Description="Container Port: 8081" Type="Port" Display="always" Required="true" Mask="false">8081</Config>
+  <Config Name="Host Port 5" Target="8443" Default="8443" Mode="tcp" Description="Container Port: 8443" Type="Port" Display="always" Required="true" Mask="false">8443</Config>
+  <Config Name="Host Port 6" Target="8843" Default="8843" Mode="tcp" Description="Container Port: 8843" Type="Port" Display="always" Required="true" Mask="false">8843</Config>
+  <Config Name="Host Port 7" Target="8880" Default="8880" Mode="tcp" Description="Container Port: 8880" Type="Port" Display="always" Required="true" Mask="false">8880</Config>
+  <Config Name="Config Path" Target="/usr/lib/unifi/data" Default="/mnt/user/appdata/unifi" Mode="rw" Description="Container Path: /usr/lib/unifi/data" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/unifi</Config>
+  <Config Name="Logs Path" Target="/usr/lib/unifi/logs" Default="/mnt/user/appdata/unifi/logs" Mode="rw" Description="Container Path: /usr/lib/unifi/logs" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/unifi/logs</Config>
+  <Config Name="PUID" Target="PUID" Default="0" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
+  <Config Name="PGID" Target="PGID" Default="0" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
 </Container>

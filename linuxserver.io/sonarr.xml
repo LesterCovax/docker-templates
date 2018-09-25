@@ -1,42 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Container>
-  <TemplateURL>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/sonarr.xml</TemplateURL>
-  <Beta>False</Beta>
-  <Category>Downloaders: MediaApp:Video</Category>
-  <Date>2017-04-17</Date>
-  <Name>sonarr</Name>
-  <Changes>[center][img width='300px' src='https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Sonarr</Name>
+  <Date>2018.09.24</Date>  
+  <Changes> [center][img width='300px' src='https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
 
-[center][font size=4]Sonarr Change Log[/font][/center]
-[b]17.04.2017:[/b] Mono 4.8 using inhouse baseimage.
-[b]23.09.2016:[/b] Fix issues with redirect on althub.
-[b]16.09.2016:[/b] Add libcurl3 package for https connections.
-</Changes>
+  [center][font size=4]Sonarr Change Log[/font][/center]
+  [b]2018.09.24:[/b]
+  - Updated for Unraid 6.6.0
+    - Added CPU pinning
+    - Removed port mapping config in lieu of extra-param port definition (config port mapping using legacy docker networking)
+    - Switched to br0 networking with static IP
+  </Changes>  
+  <Repository>linuxserver/sonarr</Repository>
+  <Registry>https://hub.docker.com/r/linuxserver/sonarr/</Registry>
+  <Network>br0</Network>
+  <MyIP>10.0.0.78</MyIP>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
   <Support>https://forums.unraid.net/topic/41908-support-linuxserverio-sonarr/</Support>
-  <Description>Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.&#13;
-  [br][br][b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]&amp;#13;&#13;
-  [b]/config[/b] : Storing all Sonarr config files [br]&amp;#13;&#13;
-  [b]/tv[/b] : Point to TV share[br]&amp;#13;&#13;
-  [b]/download[/b] : Point to Download's[br]
-  [b]8989[/b] : The web-interface. [br]</Description>
   <Project>https://sonarr.tv/</Project>
   <Overview>Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.</Overview>
-  <Registry>https://hub.docker.com/r/linuxserver/sonarr/</Registry>
-  <Repository>linuxserver/sonarr</Repository>
-  <BindTime>true</BindTime>
-  <Privileged>false</Privileged>
-  <Environment>
-    <Variable>
-      <Name>PUID</Name>
-      <Value>99</Value>
-    </Variable>
-    <Variable>
-      <Name>PGID</Name>
-      <Value>100</Value>
-    </Variable>
-  </Environment>
+  <Category>Downloaders: MediaApp:Video</Category>
+  <WebUI>http://[IP]:[PORT:8989]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/sonarr.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/sonarr-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset>0,1</CPUset>
+  <DateInstalled/>
+  <DonateText>Donations</DonateText>
+  <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+  <Description>Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.</Description>
   <Networking>
-    <Mode>bridge</Mode>
+    <Mode>br0</Mode>
     <Publish>
       <Port>
         <HostPort>8989</HostPort>
@@ -44,35 +40,53 @@
         <Protocol>tcp</Protocol>
       </Port>
     </Publish>
-  </Networking>
+  </Networking>  
   <Data>
-    <Volume>
-      <HostDir></HostDir>
-      <ContainerDir>/config</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
     <Volume>
       <HostDir>/dev/rtc</HostDir>
       <ContainerDir>/dev/rtc</ContainerDir>
       <Mode>ro</Mode>
     </Volume>
     <Volume>
-      <HostDir></HostDir>
+      <HostDir>/mnt/tv/</HostDir>
       <ContainerDir>/tv</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir></HostDir>
+      <HostDir>/mnt/tv/.snatched/</HostDir>
       <ContainerDir>/downloads</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
+    <Volume>
+      <HostDir>/mnt/media/Anime</HostDir>
+      <ContainerDir>/anime</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/sonarr/config</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
   </Data>
-  <Version>992c565c</Version>
-  <WebUI>http://[IP]:[PORT:8989]/</WebUI>
-  <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sonarr-icon.png</Icon>
-  <ExtraParams></ExtraParams>
-<DonateText>Donations</DonateText>
-<DonateLink>https://www.linuxserver.io/donate</DonateLink>
-<DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
-<BaseImage>lsiobase/mono:xenial</BaseImage>
+  <Environment>
+    <Variable>
+      <Value>0</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>0</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="Host Port" Target="8989" Default="8989" Mode="tcp" Description="Container Port: 8989" Type="Port" Display="always" Required="true" Mask="false">8989</Config>
+  <Config Name="TV Path" Target="/tv" Default="" Mode="rw" Description="Container Path: /tv" Type="Path" Display="always" Required="true" Mask="false">/mnt/tv/</Config>
+  <Config Name="Anime Path" Target="/anime" Default="" Mode="rw" Description="Container Path: /anime" Type="Path" Display="always" Required="false" Mask="false">/mnt/media/Anime</Config>  
+  <Config Name="Downloads Path" Target="/downloads" Default="" Mode="rw" Description="Container Path: /downloads" Type="Path" Display="always" Required="true" Mask="false">/mnt/tv/.snatched/</Config>
+  <Config Name="AppData Path" Target="/config" Default="/mnt/user/appdata/sonarr" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/sonarr/config</Config>  
+  <Config Name="PUID" Target="PUID" Default="0" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
+  <Config Name="PGID" Target="PGID" Default="0" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
+  <Config Name="RTC" Target="/dev/rtc" Default="/dev/rtc" Mode="ro" Description="Container Path: /dev/rtc" Type="Path" Display="advanced-hide" Required="true" Mask="false">/dev/rtc</Config>  
 </Container>

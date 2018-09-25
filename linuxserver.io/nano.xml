@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Nano</Name>
+  <Changes> [center][img width='300px' src='https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
+
+  [center][font size=4]Nano Change Log[/font][/center]
+  [b]2018.09.24:[/b]
+  - Updated for Unraid 6.6.0
+    - Added CPU pinning
+    - Removed port mapping config in lieu of extra-param port definition (config port mapping using legacy docker networking)
+    - Switched to br0 networking with static IP
+  </Changes>
+  <Date>2018-09-24</Date>
+  <Version>1.0</Version>
+  <Repository>nanocurrency/nano</Repository>
+  <Registry>https://hub.docker.com/r/nanocurrency/nano/</Registry>
+  <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/nano.xml</TemplateURL>
+  <Icon>https://i.imgur.com/YRO5MUe.jpg</Icon>  
+  <Description>Nano Cryptocurrency Node</Description>
+  <Overview>Use the Nano node container to support the Nano network, and optionally set up a wallet to run a representative</Overview>
+  <Project>https://nano.org/en</Project>    
+  <Support/>
+  <WebUI/>  
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Category>Other:</Category>
+  <Network>br0</Network>
+  <MyIP>10.0.0.71</MyIP>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <ExtraParams>-p 7075:7075/udp -p 7075:7075 -p [::1]:7076:7076</ExtraParams>
+  <PostArgs/>
+  <CPUset>0,1</CPUset>
+  <Networking>
+    <Mode>br0</Mode>
+    <Publish/>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/nano</HostDir>
+      <ContainerDir>/root</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>0</Value>
+      <Name>PUID</Name>
+      <Mode/>
+    </Variable>
+    <Variable>
+      <Value>0</Value>
+      <Name>PGID</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Config Name="App Path" Target="/root" Default="/mnt/user/appdata/nano" Mode="rw" Description="Container Path: /root" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nano</Config>
+  <Config Name="PUID" Target="PUID" Default="0" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
+  <Config Name="PGID" Target="PGID" Default="0" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>  
+</Container>

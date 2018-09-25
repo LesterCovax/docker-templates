@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Container>
-  <TemplateURL>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/nzbget.xml</TemplateURL>
+<Container version="2">
+  <Name>NZBGet</Name>
+  <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/nzbget.xml</TemplateURL>
   <Beta>False</Beta>
   <Category>Downloaders:</Category>
-  <Date>2016-08-19</Date>
+  <Date>2018-09-24</Date>
   <Support>https://forums.unraid.net/topic/41906-support-linuxserverio-nzbget/</Support>
-  <Name>nzbget</Name>
- <Changes> [center][img width='300px' src='https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
+  <Changes> [center][img width='300px' src='https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
 
-[center][font size=4]NZBGet Change Log[/font][/center]
-[b]19.08.2016:[/b] Rebase to alpine linux.</Changes>
+  [center][font size=4]NZBGet Change Log[/font][/center]
+  [b]2018.09.24:[/b]
+  - Forked from github/linuxserver
+  - Updated for Unraid 6.6.0
+    - Added CPU pinning
+    - Removed port mapping config in lieu of extra-param port definition (config port mapping using legacy docker networking)
+    - Switched to br0 networking with static IP
+  </Changes>
   <Description>NZBGet is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources. It supports all platforms including Windows, Mac, Linux and works on all devices including PC, NAS, WLAN routers and media players.
   [br][br][b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]
   [b]/config[/b] : Storing all NZBGet config files [br]
@@ -25,21 +31,24 @@
   <Repository>linuxserver/nzbget</Repository>
   <BindTime>true</BindTime>
   <Privileged>false</Privileged>
+  <ExtraParams>-p 6788:6789</ExtraParams>
+  <PostArgs/>
+  <CPUset>0,1</CPUset>
   <Environment>
     <Variable>
       <Name>PUID</Name>
-      <Value>99</Value>
+      <Value>0</Value>
     </Variable>
     <Variable>
       <Name>PGID</Name>
-      <Value>100</Value>
+      <Value>0</Value>
     </Variable>
   </Environment>
   <Networking>
-    <Mode>bridge</Mode>
+    <Mode>br0</Mode>
     <Publish>
       <Port>
-        <HostPort>6789</HostPort>
+        <HostPort>6788</HostPort>
         <ContainerPort>6789</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
@@ -47,22 +56,42 @@
   </Networking>
   <Data>
     <Volume>
-      <HostDir></HostDir>
+      <HostDir>/mnt/torrents/software</HostDir>
+      <ContainerDir>/software</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/movies</HostDir>
+      <ContainerDir>/movies</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/tv</HostDir>
+      <ContainerDir>/tv</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/nzbget/downloads</HostDir>
+      <ContainerDir>/downloads</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/nzbget/config</HostDir>
       <ContainerDir>/config</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir></HostDir>
-      <ContainerDir>/downloads</ContainerDir>
+      <HostDir>/mnt/user/appdata/nzbget</HostDir>
+      <ContainerDir>/nzbget</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
-  <Version></Version>
-  <WebUI>http://[IP]:[PORT:6789]/</WebUI>
-  <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nzbget-icon.png</Icon>
+  <Version>1.0</Version>
+  <WebUI>http://[IP]:[PORT:6788]/</WebUI>
+  <Icon>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/nzbget-icon.png</Icon>
   <ExtraParams></ExtraParams>
-<DonateText>Donations</DonateText>
-<DonateLink>https://www.linuxserver.io/donate</DonateLink>
-<DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
-<BaseImage>lsiobase/alpine:3.6</BaseImage>
+  <DonateText>Donations</DonateText>
+  <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+  <DonateImg>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+  <BaseImage>lsiobase/alpine:3.6</BaseImage>
 </Container>

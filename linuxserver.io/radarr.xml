@@ -1,41 +1,28 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Container>
-  <TemplateURL>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/radarr.xml</TemplateURL>
-  <Beta>True</Beta>
-  <Category>Downloaders: MediaApp:Video Status:Beta</Category>
-  <Date>2017-04-17</Date>
-<Changes>
-  [center][img width='300px' src='https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
-
-  [center][font size=4]Radarr Change Log[/font][/center]
-  [b]17.04.2017:[/b] Mono 4.8 using inhouse baseimage.
-  [b]10.01.2017:[/b] Initial Release.
-  </Changes>
-  <Name>radarr</Name>
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Radarr</Name>
+  <Repository>linuxserver/radarr</Repository>
+  <Registry>https://hub.docker.com/r/linuxserver/radarr/</Registry>
+  <Network>br0</Network>
+  <MyIP>10.0.0.77</MyIP>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
   <Support>https://forums.unraid.net/topic/53758-support-linuxserverio-radarr/</Support>
   <Project>https://github.com/Radarr/Radarr</Project>
-  <Repository>linuxserver/radarr</Repository>
-  <Branch>
-  <Tag>nightly</Tag>
-  <TagDescription>nightly build of radarr (unsupported)</TagDescription>
-  </Branch>
-  <Registry>https://hub.docker.com/r/linuxserver/radarr/</Registry>
-  <Network>bridge</Network>
-  <Privileged>false</Privileged>
-  <Overview>Radarr - A fork of Sonarr to work with movies à la Couchpotato.</Overview>
-  <WebUI>http://[IP]:[PORT:7878]</WebUI>
-  <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/radarr.png</Icon>
-  <Description>Radarr - A fork of Sonarr to work with movies à la Couchpotato.&#xD;
-&#xD;
-[br][br][b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]&#xD;
-&#xD;
-[b]/config[/b] : Storing all Radarr config files [br]&#xD;
-&#xD;
-[b]/movies[/b] : Point to Movies share[br]&#xD;
-&#xD;
-[b]7878[/b] : The web-interface. [br]</Description>
+  <Overview>Radarr - A fork of Sonarr to work with movies &#xE0; la Couchpotato.</Overview>
+  <Category>Downloaders: MediaApp:Video Status:Beta</Category>
+  <WebUI>http://[IP]:7878</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/radarr.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/radarr.png</Icon>
+  <ExtraParams>-p 7878:7878</ExtraParams>
+  <PostArgs/>
+  <CPUset>0,1</CPUset>
+  <DateInstalled/>
+  <DonateText>Donations</DonateText>
+  <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+  <Description>Radarr - A fork of Sonarr to work with movies &#xE0; la Couchpotato.</Description>
   <Networking>
-    <Mode>bridge</Mode>
+    <Mode>br0</Mode>
     <Publish>
       <Port>
         <HostPort>7878</HostPort>
@@ -46,33 +33,43 @@
   </Networking>
   <Data>
     <Volume>
-      <HostDir></HostDir>
-      <ContainerDir>/config</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-    <Volume>
-      <HostDir></HostDir>
+      <HostDir>/mnt/movies/.snatched</HostDir>
       <ContainerDir>/downloads</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
     <Volume>
-      <HostDir></HostDir>
+      <HostDir>/mnt/movies</HostDir>
       <ContainerDir>/movies</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/media/Anime</HostDir>
+      <ContainerDir>/anime</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/radarr</HostDir>
+      <ContainerDir>/config</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
   </Data>
   <Environment>
     <Variable>
-      <Value>99</Value>
+      <Value>0</Value>
       <Name>PUID</Name>
+      <Mode/>
     </Variable>
     <Variable>
-      <Value>100</Value>
+      <Value>0</Value>
       <Name>PGID</Name>
+      <Mode/>
     </Variable>
   </Environment>
-<DonateText>Donations</DonateText>
-<DonateLink>https://www.linuxserver.io/donate</DonateLink>
-<DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
-<BaseImage>lsiobase/mono</BaseImage>
+  <Labels/>
+  <Config Name="Downloads Path" Target="/downloads" Default="" Mode="rw" Description="Container Path: /downloads" Type="Path" Display="always" Required="true" Mask="false">/mnt/movies/.snatched</Config>
+  <Config Name="AppData Path" Target="/config" Default="/mnt/user/appdata/radarr" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/radarr</Config>  
+  <Config Name="Movies Path" Target="/movies" Default="" Mode="rw" Description="Container Path: /movies" Type="Path" Display="always" Required="true" Mask="false">/mnt/movies</Config>
+  <Config Name="Anime Path" Target="/anime" Default="" Mode="rw" Description="Container Path: /anime" Type="Path" Display="always" Required="false" Mask="false">/mnt/media/Anime</Config>
+  <Config Name="PUID" Target="PUID" Default="0" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
+  <Config Name="PGID" Target="PGID" Default="0" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
 </Container>
