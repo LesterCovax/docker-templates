@@ -85,12 +85,12 @@
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Software" Target="/software" Default="" Mode="rw" Description="Container Path: /software" Type="Path" Display="always" Required="false" Mask="false">/mnt/torrents/software</Config>
-  <Config Name="Movies" Target="/movies" Default="" Mode="rw" Description="Container Path: /movies" Type="Path" Display="always" Required="false" Mask="false">/mnt/movies</Config>
-  <Config Name="TV" Target="/tv" Default="" Mode="rw" Description="Container Path: /tv" Type="Path" Display="always" Required="false" Mask="false">/mnt/tv</Config>
+  <Config Name="Software Path" Target="/software" Default="" Mode="rw" Description="Container Path: /software" Type="Path" Display="always" Required="false" Mask="false">/mnt/torrents/software</Config>
+  <Config Name="Movies Path" Target="/movies" Default="" Mode="rw" Description="Container Path: /movies" Type="Path" Display="always" Required="false" Mask="false">/mnt/movies</Config>
+  <Config Name="TV Path" Target="/tv" Default="" Mode="rw" Description="Container Path: /tv" Type="Path" Display="always" Required="false" Mask="false">/mnt/tv</Config>
   <Config Name="Downloads" Target="/downloads" Default="" Mode="rw" Description="Container Path: /downloads" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/nzbget/downloads</Config>
+  <Config Name="Config Path" Target="/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/nzbget/config</Config>
+  <Config Name="App Directory" Target="/nzbget" Default="" Mode="rw" Description="Container Path: /nzbget" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/nzbget</Config>  
   <Config Name="PGID" Target="PGID" Default="0" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
   <Config Name="PUID" Target="PUID" Default="0" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
-  <Config Name="Config" Target="/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/nzbget/config</Config>
-  <Config Name="App Directory" Target="/nzbget" Default="" Mode="rw" Description="Container Path: /nzbget" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/nzbget</Config>
 </Container>
