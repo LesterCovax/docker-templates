@@ -5,7 +5,7 @@
   <Changes></Changes>  
   <Repository>linuxserver/sonarr</Repository>
   <Registry>https://hub.docker.com/r/linuxserver/sonarr/</Registry>
-  <Support>https://forums.unraid.net/topic/41908-support-linuxserverio-sonarr/</Support>
+  <Support></Support>
   <Project>https://sonarr.tv/</Project>
   <Overview>Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.</Overview>
   <Category></Category>
@@ -16,7 +16,6 @@
   <PostArgs/>
   <CPUset>0,1</CPUset>
   <DateInstalled/>
-  </Description>
   <Network>br0</Network>
   <MyIP>10.0.0.78</MyIP>
   <Shell>sh</Shell>
