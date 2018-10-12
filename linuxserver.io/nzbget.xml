@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Container version="2">
-  <Name>nzbget_</Name>
+  <Name>nzbget</Name>
   <Changes> [center][img width='300px' src='https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
 
   [center][font size=4]NZBGet Change Log[/font][/center]

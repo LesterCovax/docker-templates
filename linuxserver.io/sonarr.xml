@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>sonarr_</Name>
+  <Name>sonarr</Name>
   <Date>2018.10.14</Date>  
   <Changes></Changes>  
   <Repository>linuxserver/sonarr</Repository>
