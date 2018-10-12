@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Container version="2">
-<Container>
   <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/deluge.xml</TemplateURL>
   <Beta>False</Beta>
   <Category>Downloaders:</Category>
