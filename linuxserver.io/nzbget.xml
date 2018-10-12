@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Container version="2">
   <Name>nzbget</Name>
   <Changes> [center][img width='300px' src='https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
@@ -91,8 +91,8 @@
   <Config Name="Movies Path" Target="/movies" Default="" Mode="rw,slave" Description="Container Path: /movies" Type="Path" Display="always" Required="false" Mask="false">/mnt/disks/torrents/Movies</Config>
   <Config Name="TV Path" Target="/tv" Default="" Mode="rw,slave" Description="Container Path: /tv" Type="Path" Display="always" Required="false" Mask="false">/mnt/disks/torrents/TV Shows/</Config>
   <Config Name="Downloads" Target="/downloads" Default="" Mode="rw" Description="Container Path: /downloads" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/nzbget/downloads</Config>
-  <Config Name="Config Path" Target="/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/nzbget/config</Config>
-  <Config Name="App Directory" Target="/nzbget" Default="" Mode="rw" Description="Container Path: /nzbget" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/nzbget</Config>  
+  <Config Name="Config Path" Target="/config" Default="/mnt/user/appdata/nzbget/config" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nzbget/config</Config>
+  <Config Name="App Directory" Target="/nzbget" Default="/mnt/user/appdata/nzbget" Mode="rw" Description="Container Path: /nzbget" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nzbget</Config>  
   <Config Name="PGID" Target="PGID" Default="0" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
   <Config Name="PUID" Target="PUID" Default="0" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
   <Config Name="Web UI Port" Target="6789" Default="6789" Mode="tcp" Description="Container Port: 6789" Type="Port" Display="always" Required="true" Mask="false">6789</Config>

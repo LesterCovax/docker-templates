@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Container>
-  <TemplateURL>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/$TEMPLATENAME.xml</TemplateURL>
+<Container version="2">
+  <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/$TEMPLATENAME.xml</TemplateURL>
   <Beta>False</Beta>
   <Category>MediaServer:Video MediaServer:Music MediaServer:Photos</Category>
   <Date></Date>
@@ -25,6 +25,7 @@
   <Repository></Repository>
   <BindTime>true</BindTime>
   <Privileged>false</Privileged>
+  <CPUset></CPUset>
   <Environment>
     <Variable>
       <Name></Name>

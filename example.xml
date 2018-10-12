@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Container>
-  <TemplateURL>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/TEMPLATENAME.xml</TemplateURL>
+<Container version="2">
+  <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/TEMPLATENAME.xml</TemplateURL>
   <Beta>False</Beta>
   <Category></Category>
   <!-- Date in format YYYY-MM-DD  -->
   <Date></Date>
   <Changes>
-  [center][img width='300px' src='https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
+  [center][img width='300px' src='https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
 
   [center][font size=4] Change Log[/font][/center]
   </Changes>
@@ -26,12 +26,13 @@
   <Repository>test/test</Repository>
   <BindTime>true</BindTime>
   <Privileged>false</Privileged>
+  <CPUset>0,1</CPUset>
   <Network Default="bridge">bridge</Network>
-  <Config Name="User ID" Target="PUID" Default="99" Mode="" Description="Set to Desired User ID"
-Type="Variable" Display="always" Required="true" Mask="false">99</Config>
+  <Config Name="User ID" Target="PUID" Default="0" Mode="" Description="Set to Desired User ID"
+Type="Variable" Display="always" Required="true" Mask="false">0</Config>
 
-  <Config Name="Group ID" Target="PGID" Default="100" Mode="" Description="Set to Desired Group ID"
-Type="Variable" Display="always" Required="true" Mask="false">100</Config>
+  <Config Name="Group ID" Target="PGID" Default="0" Mode="" Description="Set to Desired Group ID"
+Type="Variable" Display="always" Required="true" Mask="false">0</Config>
 
 
 <WebUI>http://[IP]:[PORT:80]/</WebUI>
