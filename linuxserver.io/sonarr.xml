@@ -1,22 +1,14 @@
 <?xml version="1.0"?>
 <Container version="2">
-  <Name>sonarr</Name>
-  <Date>2018.09.24</Date>  
-  <Changes> [center][img width='300px' src='https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
-
-  [center][font size=4]Sonarr Change Log[/font][/center]
-  [b]2018.09.24:[/b]
-  - Updated for Unraid 6.6.0
-    - Added CPU pinning
-    - Removed port mapping config in lieu of extra-param port definition (config port mapping using legacy docker networking)
-    - Switched to br0 networking with static IP
-  </Changes>  
+  <Name>sonarr_</Name>
+  <Date>2018.10.14</Date>  
+  <Changes></Changes>  
   <Repository>linuxserver/sonarr</Repository>
   <Registry>https://hub.docker.com/r/linuxserver/sonarr/</Registry>
   <Support>https://forums.unraid.net/topic/41908-support-linuxserverio-sonarr/</Support>
   <Project>https://sonarr.tv/</Project>
   <Overview>Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.</Overview>
-  <Category>Downloaders: MediaApp:Video</Category>
+  <Category></Category>
   <WebUI>http://[IP]:[PORT:8989]/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/sonarr.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/sonarr-icon.png</Icon>
@@ -24,9 +16,6 @@
   <PostArgs/>
   <CPUset>0,1</CPUset>
   <DateInstalled/>
-  <DonateText>Donations</DonateText>
-  <DonateLink>https://www.linuxserver.io/donate</DonateLink>
-  <Description>Sonarr (formerly NZBdrone) is a PVR for usenet and bittorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.
   </Description>
   <Network>br0</Network>
   <MyIP>10.0.0.78</MyIP>
