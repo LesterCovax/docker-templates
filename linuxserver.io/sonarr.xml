@@ -49,19 +49,19 @@
       <Mode>ro</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/tv/</HostDir>
+      <HostDir>/mnt/disks/torrents/TV Shows/</HostDir>
       <ContainerDir>/tv</ContainerDir>
-      <Mode>rw</Mode>
+      <Mode>rw,slave</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/tv/.snatched/</HostDir>
+      <HostDir>/mnt/disks/torrents/TV Shows/.snatched/</HostDir>
       <ContainerDir>/downloads</ContainerDir>
-      <Mode>rw</Mode>
+      <Mode>rw,slave</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/media/Anime</HostDir>
+      <HostDir>/mnt/disks/media/Anime</HostDir>
       <ContainerDir>/anime</ContainerDir>
-      <Mode>rw</Mode>
+      <Mode>rw,slave</Mode>
     </Volume>
     <Volume>
       <HostDir>/mnt/user/appdata/sonarr/config</HostDir>
@@ -83,9 +83,9 @@
   </Environment>
   <Labels/>
   <Config Name="Host Port" Target="8989" Default="8989" Mode="tcp" Description="Container Port: 8989" Type="Port" Display="always" Required="true" Mask="false">8989</Config>
-  <Config Name="TV Path" Target="/tv" Default="" Mode="rw" Description="Container Path: /tv" Type="Path" Display="always" Required="true" Mask="false">/mnt/tv/</Config>
-  <Config Name="Anime Path" Target="/anime" Default="" Mode="rw" Description="Container Path: /anime" Type="Path" Display="always" Required="false" Mask="false">/mnt/media/Anime</Config>  
-  <Config Name="Downloads Path" Target="/downloads" Default="" Mode="rw" Description="Container Path: /downloads" Type="Path" Display="always" Required="true" Mask="false">/mnt/tv/.snatched/</Config>
+  <Config Name="TV Path" Target="/tv" Default="" Mode="rw,slave" Description="Container Path: /tv" Type="Path" Display="always" Required="true" Mask="false">/mnt/disks/torrents/TV Shows/</Config>
+  <Config Name="Anime Path" Target="/anime" Default="" Mode="rw,slave" Description="Container Path: /anime" Type="Path" Display="always" Required="false" Mask="false">/mnt/disks/media/Anime</Config>  
+  <Config Name="Downloads Path" Target="/downloads" Default="" Mode="rw,slave" Description="Container Path: /downloads" Type="Path" Display="always" Required="true" Mask="false">/mnt/disks/torrents/TV Shows/.snatched/</Config>
   <Config Name="AppData Path" Target="/config" Default="/mnt/user/appdata/sonarr" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/sonarr/config</Config>  
   <Config Name="PUID" Target="PUID" Default="0" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
   <Config Name="PGID" Target="PGID" Default="0" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>

@@ -33,19 +33,19 @@
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/movies/.snatched</HostDir>
+      <HostDir>/mnt/disks/torrents/Movies/.snatched</HostDir>
       <ContainerDir>/downloads</ContainerDir>
-      <Mode>rw</Mode>
+      <Mode>rw,slave</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/movies</HostDir>
+      <HostDir>/mnt/disks/torrents/Movies</HostDir>
       <ContainerDir>/movies</ContainerDir>
-      <Mode>rw</Mode>
+      <Mode>rw,slave</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/media/Anime</HostDir>
+      <HostDir>/mnt/disks/media/Anime</HostDir>
       <ContainerDir>/anime</ContainerDir>
-      <Mode>rw</Mode>
+      <Mode>rw,slave</Mode>
     </Volume>
     <Volume>
       <HostDir>/mnt/user/appdata/radarr</HostDir>
@@ -66,10 +66,10 @@
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Downloads Path" Target="/downloads" Default="" Mode="rw" Description="Container Path: /downloads" Type="Path" Display="always" Required="true" Mask="false">/mnt/movies/.snatched</Config>
+  <Config Name="Downloads Path" Target="/downloads" Default="" Mode="rw,slave" Description="Container Path: /downloads" Type="Path" Display="always" Required="true" Mask="false">/mnt/disks/torrents/Movies/.snatched</Config>
   <Config Name="AppData Path" Target="/config" Default="/mnt/user/appdata/radarr" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/radarr</Config>  
-  <Config Name="Movies Path" Target="/movies" Default="" Mode="rw" Description="Container Path: /movies" Type="Path" Display="always" Required="true" Mask="false">/mnt/movies</Config>
-  <Config Name="Anime Path" Target="/anime" Default="" Mode="rw" Description="Container Path: /anime" Type="Path" Display="always" Required="false" Mask="false">/mnt/media/Anime</Config>
+  <Config Name="Movies Path" Target="/movies" Default="" Mode="rw,slave" Description="Container Path: /movies" Type="Path" Display="always" Required="true" Mask="false">/mnt/disks/torrents/Movies</Config>
+  <Config Name="Anime Path" Target="/anime" Default="" Mode="rw,slave" Description="Container Path: /anime" Type="Path" Display="always" Required="false" Mask="false">/mnt/disks/media/Anime</Config>
   <Config Name="PUID" Target="PUID" Default="0" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
   <Config Name="PGID" Target="PGID" Default="0" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
 </Container>

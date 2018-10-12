@@ -42,19 +42,19 @@
   </Networking>
   <Data>
     <Volume>
-      <HostDir>/mnt/torrents/software</HostDir>
+      <HostDir>/mnt/disks/torrents/software</HostDir>
       <ContainerDir>/software</ContainerDir>
-      <Mode>rw</Mode>
+      <Mode>rw,slave</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/movies</HostDir>
+      <HostDir>/mnt/disks/torrents/Movies</HostDir>
       <ContainerDir>/movies</ContainerDir>
-      <Mode>rw</Mode>
+      <Mode>rw,slave</Mode>
     </Volume>
     <Volume>
-      <HostDir>/mnt/tv</HostDir>
+      <HostDir>/mnt/disks/torrents/TV Shows/</HostDir>
       <ContainerDir>/tv</ContainerDir>
-      <Mode>rw</Mode>
+      <Mode>rw,slave</Mode>
     </Volume>
     <Volume>
       <HostDir>/mnt/user/appdata/nzbget/downloads</HostDir>
@@ -85,9 +85,9 @@
     </Variable>
   </Environment>
   <Labels/>
-  <Config Name="Software Path" Target="/software" Default="" Mode="rw" Description="Container Path: /software" Type="Path" Display="always" Required="false" Mask="false">/mnt/torrents/software</Config>
-  <Config Name="Movies Path" Target="/movies" Default="" Mode="rw" Description="Container Path: /movies" Type="Path" Display="always" Required="false" Mask="false">/mnt/movies</Config>
-  <Config Name="TV Path" Target="/tv" Default="" Mode="rw" Description="Container Path: /tv" Type="Path" Display="always" Required="false" Mask="false">/mnt/tv</Config>
+  <Config Name="Software Path" Target="/software" Default="" Mode="rw,slave" Description="Container Path: /software" Type="Path" Display="always" Required="false" Mask="false">/mnt/disks/torrents/software</Config>
+  <Config Name="Movies Path" Target="/movies" Default="" Mode="rw,slave" Description="Container Path: /movies" Type="Path" Display="always" Required="false" Mask="false">/mnt/disks/torrents/Movies</Config>
+  <Config Name="TV Path" Target="/tv" Default="" Mode="rw,slave" Description="Container Path: /tv" Type="Path" Display="always" Required="false" Mask="false">/mnt/disks/torrents/TV Shows/</Config>
   <Config Name="Downloads" Target="/downloads" Default="" Mode="rw" Description="Container Path: /downloads" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/nzbget/downloads</Config>
   <Config Name="Config Path" Target="/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/nzbget/config</Config>
   <Config Name="App Directory" Target="/nzbget" Default="" Mode="rw" Description="Container Path: /nzbget" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/nzbget</Config>  
