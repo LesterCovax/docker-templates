@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Container version="2">
+  <Name>deluge_</Name>
   <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/deluge.xml</TemplateURL>
   <Beta>False</Beta>
   <Category>Downloaders:</Category>
   <Date>2018-10-14</Date>
-  <Changes>
-  </Changes>
-  <Name>deluge</Name>
+  <Changes></Changes>
   <Support>https://forums.unraid.net/topic/41742-support-linuxserverio-deluge/</Support>
-  <DonateText>Donations</DonateText>
-  <DonateLink>https://www.linuxserver.io/donate</DonateLink>
   <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
   <BaseImage>lsiobase/alpine:3.6</BaseImage>
   <Description>

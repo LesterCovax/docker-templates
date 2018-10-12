@@ -1,6 +1,6 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Container version="2">
-  <Name>tautulli</Name>
+  <Name>tautulli_</Name>
   <Changes> [center][img width='300px' src='https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
 
   [center][font size=4]Tautulli Change Log[/font][/center]
@@ -13,9 +13,6 @@
   </Changes>  
   <Repository>linuxserver/tautulli</Repository>
   <Registry>https://hub.docker.com/r/linuxserver/tautulli/</Registry>
-  <DonateText>Donations</DonateText>
-  <DonateLink>https://www.linuxserver.io/donate</DonateLink>
-  <DonateImg>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
   <BaseImage>lsiobase/alpine.python:3.7</BaseImage>  
   <Network>br0</Network>
   <MyIP>10.0.0.80</MyIP>
@@ -29,7 +26,7 @@
   [b]/logs[/b] Map to you plex logs (required for IP logging)[br]&#xD;
   &#xD;
   </Overview>
-  <Category>MediaServer:Other Tools:</Category>
+  <Category></Category>
   <WebUI>http://[IP]:[PORT:8181]/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/tautulli.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/tautulli-icon.png</Icon>

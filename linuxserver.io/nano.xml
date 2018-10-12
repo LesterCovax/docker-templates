@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Container version="2">
   <Name>nano</Name>
   <Changes> [center][img width='300px' src='https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
@@ -45,16 +45,14 @@
   </Data>
   <Environment>
     <Variable>
-      <Name>PUID</Name>
       <Value>0</Value>
+      <Name>PUID</Name>
+      <Mode/>
     </Variable>
     <Variable>
-      <Name>PGID</Name>
       <Value>0</Value>
-      </Variable>
-    <Variable>
-      <Name>UMASK_SET</Name>
-      <Value>000</Value>
+      <Name>PGID</Name>
+      <Mode/>
     </Variable>
   </Environment>
   <Config Name="App Path" Target="/root" Default="/mnt/user/appdata/nano" Mode="rw" Description="Container Path: /root" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nano</Config>

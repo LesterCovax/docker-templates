@@ -1,6 +1,6 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Container version="2">
-  <Name>radarr</Name>
+  <Name>radarr_</Name>
   <Repository>linuxserver/radarr</Repository>
   <Registry>https://hub.docker.com/r/linuxserver/radarr/</Registry>
   <Network>br0</Network>
@@ -10,7 +10,7 @@
   <Support>https://forums.unraid.net/topic/53758-support-linuxserverio-radarr/</Support>
   <Project>https://github.com/Radarr/Radarr</Project>
   <Overview>Radarr - A fork of Sonarr to work with movies &#xE0; la Couchpotato.</Overview>
-  <Category>Downloaders: MediaApp:Video Status:Beta</Category>
+  <Category></Category>
   <WebUI>http://[IP]:7878</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/radarr.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/radarr.png</Icon>
