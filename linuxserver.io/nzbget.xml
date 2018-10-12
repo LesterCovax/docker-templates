@@ -20,10 +20,10 @@
   <Project>http://nzbget.net/</Project>
   <Overview>NZBGet is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources. It supports all platforms including Windows, Mac, Linux and works on all devices including PC, NAS, WLAN routers and media players</Overview>
   <Category>Downloaders:</Category>
-  <WebUI>http://[IP]:6788</WebUI>
+  <WebUI>http://[IP]:6789</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/nzbget.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/nzbget-icon.png</Icon>
-  <ExtraParams>-p 6788:6789</ExtraParams>
+  <ExtraParams/>
   <PostArgs/>
   <CPUset>0,1</CPUset>
   <DateInstalled/>
@@ -34,7 +34,7 @@
     <Mode>br0</Mode>
     <Publish>
       <Port>
-        <HostPort>6788</HostPort>
+        <HostPort>6789</HostPort>
         <ContainerPort>6789</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
@@ -74,14 +74,16 @@
   </Data>
   <Environment>
     <Variable>
+      <Name>PUID</Name>
       <Value>0</Value>
-      <Name>PGID</Name>
-      <Mode/>
     </Variable>
     <Variable>
+      <Name>PGID</Name>
       <Value>0</Value>
-      <Name>PUID</Name>
-      <Mode/>
+      </Variable>
+    <Variable>
+      <Name>UMASK_SET</Name>
+      <Value>000</Value>
     </Variable>
   </Environment>
   <Labels/>
@@ -93,4 +95,5 @@
   <Config Name="App Directory" Target="/nzbget" Default="" Mode="rw" Description="Container Path: /nzbget" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/nzbget</Config>  
   <Config Name="PGID" Target="PGID" Default="0" Mode="" Description="Container Variable: PGID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
   <Config Name="PUID" Target="PUID" Default="0" Mode="" Description="Container Variable: PUID" Type="Variable" Display="always" Required="false" Mask="false">0</Config>
+  <Config Name="Web UI Port" Target="6789" Default="6789" Mode="tcp" Description="Container Port: 6789" Type="Port" Display="always" Required="true" Mask="false">6789</Config>
 </Container>

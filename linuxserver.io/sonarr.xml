@@ -71,14 +71,16 @@
   </Data>
   <Environment>
     <Variable>
-      <Value>0</Value>
       <Name>PUID</Name>
-      <Mode/>
+      <Value>0</Value>
     </Variable>
     <Variable>
-      <Value>0</Value>
       <Name>PGID</Name>
-      <Mode/>
+      <Value>0</Value>
+      </Variable>
+    <Variable>
+      <Name>UMASK_SET</Name>
+      <Value>000</Value>
     </Variable>
   </Environment>
   <Labels/>

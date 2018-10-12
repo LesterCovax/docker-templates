@@ -61,14 +61,16 @@
   </Data>
   <Environment>
     <Variable>
-      <Value>0</Value>
       <Name>PUID</Name>
-      <Mode/>
+      <Value>0</Value>
     </Variable>
     <Variable>
-      <Value>0</Value>
       <Name>PGID</Name>
-      <Mode/>
+      <Value>0</Value>
+      </Variable>
+    <Variable>
+      <Name>UMASK_SET</Name>
+      <Value>000</Value>
     </Variable>
   </Environment>
   <Config Name="Logs" Target="/logs" Default="/mnt/user/appdata/tautulli/logs" Mode="ro" Description="Container Path: /logs" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/tautulli/logs</Config>

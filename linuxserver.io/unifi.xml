@@ -84,14 +84,16 @@
   </Data>
   <Environment>
     <Variable>
-      <Value>0</Value>
       <Name>PUID</Name>
-      <Mode/>
+      <Value>0</Value>
     </Variable>
     <Variable>
-      <Value>0</Value>
       <Name>PGID</Name>
-      <Mode/>
+      <Value>0</Value>
+      </Variable>
+    <Variable>
+      <Name>UMASK_SET</Name>
+      <Value>000</Value>
     </Variable>
   </Environment>
   <Config Name="Host Port 1" Target="3478" Default="3478" Mode="udp" Description="Container Port: 3478" Type="Port" Display="always" Required="true" Mask="false">3478</Config>

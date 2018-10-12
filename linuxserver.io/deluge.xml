@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<Container version="2">
 <Container>
-  <TemplateURL>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/deluge.xml</TemplateURL>
+  <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/deluge.xml</TemplateURL>
   <Beta>False</Beta>
   <Category>Downloaders:</Category>
-  <Date>2017-29-04</Date>
+  <Date>2018-10-14</Date>
   <Changes>
-  [center][img width='300px' src='https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
-
-  [center][font size=4]Deluge Change Log[/font][/center]
-  [b]29.04.2017:[/b] Add UMASK_SET variable.
-  [b]15.08.2016:[/b] Rebase to alpine linux.
-  [b]15.10.2015:[/b] Initial Release.
-  [b]09.11.2015:[/b] Add unrar and unzip
   </Changes>
   <Name>deluge</Name>
   <Support>https://forums.unraid.net/topic/41742-support-linuxserverio-deluge/</Support>
+  <DonateText>Donations</DonateText>
+  <DonateLink>https://www.linuxserver.io/donate</DonateLink>
+  <DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
+  <BaseImage>lsiobase/alpine:3.6</BaseImage>
   <Description>
   Deluge is a lightweight, Free Software, cross-platform BitTorrent client providing:[br]
   Full Encryption[br]
@@ -36,14 +34,21 @@
   <Repository>linuxserver/deluge</Repository>
   <BindTime>true</BindTime>
   <Privileged>false</Privileged>
+  <Network>br0</Network>
+  <MyIP>10.0.0.79</MyIP>
+  <WebUI>http://[IP]:[PORT:8112]/</WebUI>
+  <Icon>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/deluge-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset>0,1</CPUset>
   <Environment>
     <Variable>
       <Name>PUID</Name>
-      <Value>99</Value>
+      <Value>0</Value>
     </Variable>
     <Variable>
       <Name>PGID</Name>
-      <Value>100</Value>
+      <Value>0</Value>
       </Variable>
     <Variable>
       <Name>UMASK_SET</Name>
@@ -51,25 +56,34 @@
     </Variable>
   </Environment>
   <Networking>
-    <Mode>host</Mode>
+    <Mode>br0</Mode>
+    <Publish>
+      <Port>
+        <HostPort>53400-53416</HostPort>
+        <ContainerPort/>
+        <Protocol>tcp</Protocol>
+      </Port>
+      <Port>
+        <HostPort>8112</HostPort>
+        <ContainerPort/>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
   </Networking>
   <Data>
     <Volume>
-      <HostDir></HostDir>
-      <ContainerDir>/config</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-    <Volume>
-      <HostDir></HostDir>
+      <HostDir>/mnt/user/deluge/downloads</HostDir>
       <ContainerDir>/downloads</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
+    <Volume>
+      <HostDir>/mnt/user/deluge</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
   </Data>
-<WebUI>http://[IP]:[PORT:8112]/</WebUI>
-  <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/deluge-icon.png</Icon>
-  <ExtraParams></ExtraParams>
-<DonateText>Donations</DonateText>
-<DonateLink>https://www.linuxserver.io/donate</DonateLink>
-<DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
-<BaseImage>lsiobase/alpine:3.6</BaseImage>
+  <Config Name="Ports 1" Target="" Default="53400-53416" Mode="tcp" Description="Container Port: " Type="Port" Display="always" Required="true" Mask="false">53400-53416</Config>
+  <Config Name="downloads" Target="/downloads" Default="" Mode="rw" Description="Container Path: /downloads" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/deluge/downloads</Config>
+  <Config Name="Config" Target="/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/deluge</Config>
+  <Config Name="Port" Target="" Default="8112" Mode="tcp" Description="Container Port: " Type="Port" Display="always" Required="true" Mask="false">8112</Config>
 </Container>
