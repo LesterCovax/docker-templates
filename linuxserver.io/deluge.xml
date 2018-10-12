@@ -3,7 +3,7 @@
   <Name>deluge_</Name>
   <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/deluge.xml</TemplateURL>
   <Beta>False</Beta>
-  <Category>Downloaders:</Category>
+  <Category></Category>
   <Date>2018-10-14</Date>
   <Changes></Changes>
   <Support>https://forums.unraid.net/topic/41742-support-linuxserverio-deluge/</Support>
