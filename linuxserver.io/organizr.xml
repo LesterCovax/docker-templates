@@ -11,7 +11,7 @@
   <Project>https://github.com/causefx/Organizr</Project>
   <Overview>HTPC Services Organizer</Overview>
   <Category></Category>
-  <WebUI>http://[IP]:[PORT:81]/</WebUI>
+  <WebUI>http://[IP]:[PORT:80]/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/organizr.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/organizr-icon.png</Icon>
   <ExtraParams/>
