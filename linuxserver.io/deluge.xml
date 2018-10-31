@@ -80,6 +80,6 @@
   </Data>
   <Config Name="Ports 1" Target="" Default="53400-53416" Mode="tcp" Description="Container Port: " Type="Port" Display="always" Required="true" Mask="false">53400-53416</Config>
   <Config Name="downloads" Target="/downloads" Default="" Mode="rw" Description="Container Path: /downloads" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/deluge/downloads</Config>
-  <Config Name="Config" Target="/config" Default="" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/deluge</Config>
+  <Config Name="Config" Target="/config" Default="/mnt/user/deluge" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/deluge</Config>
   <Config Name="Port" Target="" Default="8112" Mode="tcp" Description="Container Port: " Type="Port" Display="always" Required="true" Mask="false">8112</Config>
 </Container>

@@ -1,35 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Container>
-  <TemplateURL>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/organizr.xml</TemplateURL>
-  <Beta>False</Beta>
-  <Category>Tools: Network:Web Network:Proxy Network:Other</Category>
-  <Date>2017-03-11</Date>
-<Changes>
-  [center][img width='300px' src='https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_small.png'][/center]
-
-  [center][font size=4]Organizr Change Log[/font][/center]
-  [b]11.03.2017:[/b] Initial Release.
-  </Changes>
+<Container version="2">
   <Name>organizr</Name>
-  <Project>https://github.com/causefx/Organizr</Project>
-  <Support>https://forums.unraid.net/topic/55563-support-linuxserverio-organizr/</Support>
-  <Repository>lsiocommunity/organizr</Repository>
+  <Repository>linuxserver/organizr</Repository>
   <Registry>https://hub.docker.com/r/lsiocommunity/organizr/</Registry>
-  <Network>bridge</Network>
+  <Network>br0</Network>
+  <MyIP>10.0.0.81</MyIP>
+  <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  <Overview>HTPC/Homelab Services Organizer - Written in PHP</Overview>
-  <WebUI>http://[IP]:[PORT:80]/</WebUI>
-  <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/organizr-icon.png</Icon>
-  <Description>HTPC/Homelab Services Organizer - Written in PHP&#xD;
-[br]&#xD;
-[br][br][b][u][span style='color: #E80000;']Configuration[/span][/u][/b][br]&#xD;
-[b]/config[/b] : Storing all organizr config files [br]&#xD;
-</Description>
+  <Support></Support>
+  <Project>https://github.com/causefx/Organizr</Project>
+  <Overview>HTPC Services Organizer</Overview>
+  <Category></Category>
+  <WebUI>http://[IP]:[PORT:81]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/organizr.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/lestercovax/docker-templates/master/linuxserver.io/img/organizr-icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset>0,1</CPUset>
+  <DateInstalled/>
   <Networking>
-    <Mode>bridge</Mode>
+    <Mode>br0</Mode>
     <Publish>
       <Port>
-        <HostPort></HostPort>
+        <HostPort>81</HostPort>
         <ContainerPort>80</ContainerPort>
         <Protocol>tcp</Protocol>
       </Port>
@@ -44,16 +37,17 @@
   </Data>
   <Environment>
     <Variable>
-      <Value>99</Value>
       <Name>PUID</Name>
+      <Value>0</Value>
     </Variable>
     <Variable>
-      <Value>100</Value>
       <Name>PGID</Name>
+      <Value>0</Value>
+      </Variable>
+    <Variable>
+      <Name>UMASK_SET</Name>
+      <Value>000</Value>
     </Variable>
   </Environment>
-<DonateText>Donations</DonateText>
-<DonateLink>https://www.linuxserver.io/donate</DonateLink>
-<DonateImg>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/donate.png</DonateImg>
-<BaseImage>lsiobase/alpine.nginx:3.6</BaseImage>
+  <Labels/>
 </Container>
