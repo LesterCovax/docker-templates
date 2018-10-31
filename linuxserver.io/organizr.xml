@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Container version="2">
   <Name>organizr</Name>
-  <Repository>linuxserver/organizr</Repository>
+  <Repository>lsiocommunity/organizr</Repository>
   <Registry>https://hub.docker.com/r/lsiocommunity/organizr/</Registry>
   <Network>br0</Network>
   <MyIP>10.0.0.81</MyIP>
