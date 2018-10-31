@@ -20,13 +20,6 @@
   <DateInstalled/>
   <Networking>
     <Mode>br0</Mode>
-    <Publish>
-      <Port>
-        <HostPort>81</HostPort>
-        <ContainerPort>80</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
-    </Publish>
   </Networking>
   <Data>
     <Volume>
@@ -51,5 +44,4 @@
   </Environment>
   <Labels/>
   <Config Name="Config" Target="/config" Default="/mnt/user/appdata/organizr" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/organizr</Config>
-  <Config Name="Http Port" Target="80" Default="81" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="true" Mask="false">81</Config>
 </Container>
