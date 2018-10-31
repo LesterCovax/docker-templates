@@ -30,7 +30,7 @@
   </Networking>
   <Data>
     <Volume>
-      <HostDir></HostDir>
+      <HostDir>/mnt/user/appdata/organizr</HostDir>
       <ContainerDir>/config</ContainerDir>
       <Mode>rw</Mode>
     </Volume>
@@ -50,4 +50,6 @@
     </Variable>
   </Environment>
   <Labels/>
+  <Config Name="Config" Target="/config" Default="/mnt/user/appdata/organizr" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/organizr</Config>
+  <Config Name="Http Port" Target="80" Default="81" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="true" Mask="false">81</Config>
 </Container>
